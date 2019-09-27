@@ -8,7 +8,7 @@ import (
 	"github.com/urfave/cli"
 )
 
-// HandleAddComment handles add issue comment
+// HandleAddComment handles adding issue comments
 func HandleAddComment(c *cli.Context) error {
 	jiraClient, err := client.NewJiraClient(
 		c.GlobalString("host"),
