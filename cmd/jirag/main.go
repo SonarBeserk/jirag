@@ -55,6 +55,12 @@ func main() {
 			Usage:   "Assigns currently signed in user to issue",
 			Action:  assign.HandleSelfAssignment,
 		},
+		{
+			Name:    "unassign",
+			Aliases: []string{"u"},
+			Usage:   "Unassigns user from issue",
+			Action:  assign.HandleUnassignment,
+		},
 	}
 
 	app.Flags = flags
