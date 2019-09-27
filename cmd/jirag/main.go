@@ -68,6 +68,12 @@ func main() {
 			Usage:   "Adds a comment to an issue",
 			Action:  comments.HandleAddComment,
 		},
+		{
+			Name:    "comments",
+			Aliases: []string{"co"},
+			Usage:   "Lists comments for an issue",
+			Action:  comments.HandleListComments,
+		},
 	}
 
 	app.Flags = flags
