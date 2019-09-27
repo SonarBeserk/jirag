@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/SonarBeserk/jirag/internal/config"
+	"github.com/SonarBeserk/jirag/internal/issue"
 	"github.com/SonarBeserk/jirag/internal/login"
 	"github.com/urfave/cli"
 	"github.com/urfave/cli/altsrc"
@@ -34,6 +35,12 @@ func main() {
 			Aliases: []string{"l"},
 			Usage:   "Authenticate with jira",
 			Action:  login.HandleLogin,
+		},
+		{
+			Name:    "details",
+			Aliases: []string{"d"},
+			Usage:   "Lists the details of an issue",
+			Action:  issue.HandleIssueDetails,
 		},
 	}
 
