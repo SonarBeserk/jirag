@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/SonarBeserk/jirag/internal/assign"
+	"github.com/SonarBeserk/jirag/internal/comments"
 	"github.com/SonarBeserk/jirag/internal/config"
 	"github.com/SonarBeserk/jirag/internal/issue"
 	"github.com/SonarBeserk/jirag/internal/login"
@@ -60,6 +61,12 @@ func main() {
 			Aliases: []string{"u"},
 			Usage:   "Unassigns user from issue",
 			Action:  assign.HandleUnassignment,
+		},
+		{
+			Name:    "add-comment",
+			Aliases: []string{"ac"},
+			Usage:   "Adds a comment to an issue",
+			Action:  comments.HandleAddComment,
 		},
 	}
 
