@@ -49,6 +49,12 @@ func main() {
 			Usage:   "Assigns a user to an issue",
 			Action:  assign.HandleAssignment,
 		},
+		{
+			Name:    "assign-me",
+			Aliases: []string{"am"},
+			Usage:   "Assigns currently signed in user to issue",
+			Action:  assign.HandleSelfAssignment,
+		},
 	}
 
 	app.Flags = flags
