@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/SonarBeserk/jirag/internal/config"
+	"github.com/SonarBeserk/jirag/internal/login"
 	"github.com/urfave/cli"
 	"github.com/urfave/cli/altsrc"
 )
@@ -27,7 +28,14 @@ func main() {
 		altsrc.NewStringFlag(cli.StringFlag{Name: "token"}),
 	}
 
-	commands := []cli.Command{}
+	commands := []cli.Command{
+		{
+			Name:    "login",
+			Aliases: []string{"l"},
+			Usage:   "Authenticate with jira",
+			Action:  login.HandleLogin,
+		},
+	}
 
 	app.Flags = flags
 	app.Commands = commands
