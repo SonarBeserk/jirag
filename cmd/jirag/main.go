@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/SonarBeserk/jirag/internal/assign"
 	"github.com/SonarBeserk/jirag/internal/config"
 	"github.com/SonarBeserk/jirag/internal/issue"
 	"github.com/SonarBeserk/jirag/internal/login"
@@ -41,6 +42,12 @@ func main() {
 			Aliases: []string{"d"},
 			Usage:   "Lists the details of an issue",
 			Action:  issue.HandleIssueDetails,
+		},
+		{
+			Name:    "assign",
+			Aliases: []string{"a"},
+			Usage:   "Assigns a user to an issue",
+			Action:  assign.HandleAssignment,
 		},
 	}
 
