@@ -94,6 +94,12 @@ func main() {
 			Usage:   "Lists worklogs for an issue",
 			Action:  track.HandleListIssueWorklogs,
 		},
+		{
+			Name:    "open",
+			Aliases: []string{"o"},
+			Usage:   "Opens the given issue in the default browser",
+			Action:  issue.HandleOpenIssue,
+		},
 	}
 
 	app.Flags = flags
