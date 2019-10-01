@@ -9,6 +9,7 @@ import (
 	"github.com/SonarBeserk/jirag/internal/config"
 	"github.com/SonarBeserk/jirag/internal/issue"
 	"github.com/SonarBeserk/jirag/internal/login"
+	"github.com/SonarBeserk/jirag/internal/track"
 	"github.com/SonarBeserk/jirag/internal/transitions"
 	"github.com/urfave/cli"
 	"github.com/urfave/cli/altsrc"
@@ -80,6 +81,12 @@ func main() {
 			Aliases: []string{"m"},
 			Usage:   "Moves an issue between transitions",
 			Action:  transitions.HandleTransitionIssue,
+		},
+		{
+			Name:    "add-time",
+			Aliases: []string{"at"},
+			Usage:   "Adds time to an issue",
+			Action:  track.HandleTrackIssueTime,
 		},
 	}
 
