@@ -101,8 +101,8 @@ func main() {
 			Action:  issue.HandleOpenIssue,
 		},
 		{
-			Name:    "my-issues",
-			Aliases: []string{"mi"},
+			Name:    "issues",
+			Aliases: []string{"i"},
 			Usage:   "Lists issues assigned to the current user",
 			Action:  issue.HandleAssignedIssues,
 		},
