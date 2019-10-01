@@ -15,23 +15,12 @@ import (
 func HandleLogin(c *cli.Context) error {
 	cfg := &config.Config{}
 
-	if !c.Args().Present() {
-		promptCfg, err := promptForConfig()
-		if err != nil {
-			return err
-		}
-
-		cfg = promptCfg
+	promptCfg, err := promptForConfig()
+	if err != nil {
+		return err
 	}
 
-	if cfg.Host == "" {
-		stdInCfg, err := readFromStdIn(c)
-		if err != nil {
-			return err
-		}
-
-		cfg = stdInCfg
-	}
+	cfg = promptCfg
 
 	jiraClient, err := client.NewJiraClient(
 		c.GlobalString("host"),
@@ -88,27 +77,6 @@ func promptForConfig() (*config.Config, error) {
 	cfg.Host = host
 	cfg.Username = username
 	cfg.Token = token
-	return cfg, nil
-}
-
-func readFromStdIn(c *cli.Context) (*config.Config, error) {
-	cfg := &config.Config{}
-
-	cfg.Host = c.Args().Get(0)
-	if cfg.Host == "" {
-		return nil, cli.NewExitError("Jira hostname is blank", 2)
-	}
-
-	cfg.Username = c.Args().Get(1)
-	if cfg.Username == "" {
-		return nil, cli.NewExitError("Jira username is blank", 2)
-	}
-
-	cfg.Token = c.Args().Get(2)
-	if cfg.Token == "" {
-		return nil, cli.NewExitError("Jira token is blank", 2)
-	}
-
 	return cfg, nil
 }
 
