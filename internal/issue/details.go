@@ -6,6 +6,7 @@ import (
 	"html/template"
 
 	"github.com/SonarBeserk/jirag/internal/client"
+	"github.com/SonarBeserk/jirag/internal/data"
 	"github.com/urfave/cli"
 )
 
@@ -14,7 +15,8 @@ var (
 )
 
 func init() {
-	issueDetailsTmpl = template.Must(template.ParseFiles("tmpl/issue.tmpl"))
+	issueAsset := data.MustAsset("tmpl/issue.tmpl")
+	issueDetailsTmpl = template.Must(template.New("issue").Parse(string(issueAsset)))
 }
 
 // HandleIssueDetails handles listing issue details
