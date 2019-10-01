@@ -78,7 +78,7 @@ func main() {
 		},
 		{
 			Name:    "move",
-			Aliases: []string{"m"},
+			Aliases: []string{"mv"},
 			Usage:   "Moves an issue between transitions",
 			Action:  transitions.HandleTransitionIssue,
 		},
