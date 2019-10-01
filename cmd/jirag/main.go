@@ -88,6 +88,12 @@ func main() {
 			Usage:   "Adds time to an issue",
 			Action:  track.HandleTrackIssueTime,
 		},
+		{
+			Name:    "worklogs",
+			Aliases: []string{"w"},
+			Usage:   "Lists worklogs for an issue",
+			Action:  track.HandleListIssueWorklogs,
+		},
 	}
 
 	app.Flags = flags
