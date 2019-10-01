@@ -9,6 +9,7 @@ import (
 	"github.com/SonarBeserk/jirag/internal/config"
 	"github.com/SonarBeserk/jirag/internal/issue"
 	"github.com/SonarBeserk/jirag/internal/login"
+	"github.com/SonarBeserk/jirag/internal/transitions"
 	"github.com/urfave/cli"
 	"github.com/urfave/cli/altsrc"
 )
@@ -73,6 +74,12 @@ func main() {
 			Aliases: []string{"co"},
 			Usage:   "Lists comments for an issue",
 			Action:  comments.HandleListComments,
+		},
+		{
+			Name:    "move",
+			Aliases: []string{"m"},
+			Usage:   "Moves an issue between transitions",
+			Action:  transitions.HandleTransitionIssue,
 		},
 	}
 
