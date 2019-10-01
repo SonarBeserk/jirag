@@ -35,11 +35,13 @@ func HandleAssignedIssues(c *cli.Context) error {
 	}
 
 	for _, issue := range issues {
+		fmt.Println("-----------------")
 		err = issueDetailsTmpl.Execute(os.Stdout, issue)
 		if err != nil {
 			return cli.NewExitError(err.Error(), 1)
 		}
 
+		fmt.Println("-----------------")
 		fmt.Println("")
 	}
 
