@@ -100,6 +100,12 @@ func main() {
 			Usage:   "Opens the given issue in the default browser",
 			Action:  issue.HandleOpenIssue,
 		},
+		{
+			Name:    "my-issues",
+			Aliases: []string{"mi"},
+			Usage:   "Lists issues assigned to the current user",
+			Action:  issue.HandleAssignedIssues,
+		},
 	}
 
 	app.Flags = flags
