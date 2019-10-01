@@ -30,7 +30,7 @@ func HandleListComments(c *cli.Context) error {
 	comments := issue.Fields.Comments
 	if comments != nil {
 		for _, comment := range comments.Comments {
-			fmt.Println(comment.Created + "] " + comment.Author.DisplayName + ": " + comment.Body)
+			fmt.Printf("[%v] %v: %v\n", comment.Created, comment.Author.DisplayName, comment.Body)
 		}
 	}
 
