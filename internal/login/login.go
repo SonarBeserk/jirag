@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/BurntSushi/toml"
 	"github.com/SonarBeserk/jirag/internal/client"
@@ -13,19 +14,17 @@ import (
 
 // HandleLogin handles parsing login data and verifying the given login is valid
 func HandleLogin(c *cli.Context) error {
-	cfg := &config.Config{}
-
 	promptCfg, err := promptForConfig()
 	if err != nil {
 		return err
 	}
 
-	cfg = promptCfg
+	cfg := promptCfg
 
 	jiraClient, err := client.NewJiraClient(
-		c.GlobalString("host"),
-		c.GlobalString("username"),
-		c.GlobalString("token"))
+		cfg.Host,
+		cfg.Username,
+		cfg.Token)
 	if err != nil {
 		return cli.NewExitError("Failed to create client: "+err.Error(), 1)
 	}
