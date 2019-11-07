@@ -22,6 +22,12 @@ Cli tool to interact with jira instances
 
 * Listing the worklogs of an issue
 
+## Intalling
+
+```bash
+go install github.com/SonarBeserk/jirag/cmd/jirag
+```
+
 ## Generating Assets
 
 ```bash
