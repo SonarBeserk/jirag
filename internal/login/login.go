@@ -49,6 +49,8 @@ func promptForConfig() (*config.Config, error) {
 		return nil, cli.NewExitError(err, 1)
 	}
 
+	host = strings.TrimSpace(host)
+
 	if host == "" {
 		return nil, cli.NewExitError("Jira hostname is blank", 2)
 	}
@@ -59,6 +61,8 @@ func promptForConfig() (*config.Config, error) {
 		return nil, cli.NewExitError(err, 1)
 	}
 
+	username = strings.TrimSpace(username)
+
 	if username == "" {
 		return nil, cli.NewExitError("Jira username is blank", 2)
 	}
@@ -68,6 +72,8 @@ func promptForConfig() (*config.Config, error) {
 	if err != nil {
 		return nil, cli.NewExitError(err, 1)
 	}
+
+	token = strings.TrimSpace(token)
 
 	if token == "" {
 		return nil, cli.NewExitError("Jira token is blank", 2)
