@@ -66,11 +66,6 @@ func HandleTrackIssueTime(c *cli.Context) error {
 		return cli.NewExitError("Issue key required", 2)
 	}
 
-	usr, _, err := jiraClient.User.GetSelf()
-	if err != nil {
-		return cli.NewExitError(err.Error(), 1)
-	}
-
 	err = survey.Ask(issueTrackQuestions, &answers)
 	if err != nil {
 		return cli.NewExitError(err.Error(), 1)
@@ -84,7 +79,6 @@ func HandleTrackIssueTime(c *cli.Context) error {
 	jt := jira.Time(t)
 
 	worklog := &jira.WorklogRecord{
-		Author:    usr,
 		Created:   &jt,
 		TimeSpent: answers.Timespent,
 		Comment:   answers.Comment,
