@@ -35,10 +35,9 @@ func main() {
 
 	commands := []cli.Command{
 		{
-			Name:    "login",
-			Aliases: []string{"l"},
-			Usage:   "Authenticate with jira",
-			Action:  login.HandleLogin,
+			Name:   "login",
+			Usage:  "Authenticate with jira",
+			Action: login.HandleLogin,
 		},
 		{
 			Name:    "details",
