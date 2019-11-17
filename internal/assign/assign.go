@@ -7,6 +7,7 @@ import (
 	"github.com/urfave/cli"
 )
 
+// HandleAssignment handles assigning an issue to a user
 func HandleAssignment(c *cli.Context) error {
 	jiraClient, err := client.NewJiraClient(
 		c.GlobalString("host"),
