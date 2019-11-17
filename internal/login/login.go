@@ -34,7 +34,7 @@ func HandleLogin(c *cli.Context) error {
 		return cli.NewExitError(err.Error(), 1)
 	}
 
-	fmt.Printf("Authenticated successfully as user: %v" + usr.EmailAddress)
+	fmt.Printf("Authenticated successfully as user: %s", usr.EmailAddress)
 	return saveConfig(cfg)
 }
 
