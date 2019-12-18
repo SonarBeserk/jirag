@@ -22,7 +22,7 @@ Cli tool to interact with jira instances
 
 * Listing the worklogs of an issue
 
-## Intalling
+## Installing
 
 ```bash
 go install github.com/SonarBeserk/jirag/cmd/jirag
